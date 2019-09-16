@@ -2,11 +2,12 @@ conn system/root
 
 drop table caracteres;
 
+-- Tabla para almacenar los caracteres a utilizar
 create table caracteres(
     caracter varchar2(1)
 ) tablespace SYSTEM;
 
-
+-- Insert de cada uno de los caracteres
 insert into caracteres(caracter) values ('A');
 insert into caracteres(caracter) values ('B');
 insert into caracteres(caracter) values ('C');
@@ -44,7 +45,8 @@ insert into caracteres(caracter) values ('7');
 insert into caracteres(caracter) values ('8');
 insert into caracteres(caracter) values ('9');
 
-
+-- Vista que efectua un "Producto Cartesiano" 
+-- para generar todas las posibles combinaciones
 create or replace view view_producto_cartesiano as
 select (c1.caracter||c2.caracter||c3.caracter||c4.caracter) password 
 from caracteres c1, caracteres c2,caracteres c3,caracteres c4;
